@@ -61,29 +61,16 @@ poetry install
 
 ### Step 1: Choose the Model
 
-Before starting the keyword spotting system, choose the pre-trained model (either CNN or ResNet):
-
-```bash
-python inference.py --model cnn  # For CNN model
-python inference.py --model resnet  # For ResNet model
-```
+Choose the pre-trained model (either CNN or ResNet):
 
 ### Step 2: Set the Input Device
 
-You can select an input audio device (such as a microphone) for real-time audio streaming. If you're unsure which device to use, you can list available input devices:
+You can select an input audio device (such as a microphone) for real-time audio streaming. If you're unsure which device to use, you can list available input devices.
 
-```bash
-# List input devices
-python inference.py --list-devices
-```
 
 ### Step 3: Start Streaming
 
-Once you've selected the model and input device, you can start streaming:
-
-```bash
-python inference.py --start
-```
+Once you've selected the model and input device, you can press enter to start streaming.
 
 The system will begin listening for the allowed keywords and trigger the corresponding commands in real time.
 
