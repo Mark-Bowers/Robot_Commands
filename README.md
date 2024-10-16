@@ -51,12 +51,6 @@ To get started with this repository, clone the repository and install the requir
 pip install -r requirements.txt
 ```
 
-### Using `pyproject.toml` (if you are using Poetry):
-
-```bash
-poetry install
-```
-
 ## Running the System
 
 ### Step 1: Choose the Model
