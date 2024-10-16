@@ -58,6 +58,7 @@ class_to_label = {i:commands[i] for i in range(len(commands))}
 
 stop_by_voice = True
 
+"""
 class RobotStateMachine:
     def __init__(self):
         # Define the initial state of the robot
@@ -94,6 +95,7 @@ class RobotStateMachine:
         elif command in ["left", "right"]:
             self.state = "stopped"  # Keep robot stopped after turning
         # Add more transitions as needed
+"""
 
 # Example usage
 # robot_fsm = RobotStateMachine()
@@ -107,7 +109,7 @@ class KeywordSpotting:
     def __init__(self, model_path, prob_threshold=0.98): 
         # load pre-trained model
         self.model = self.load_model(model_path)
-        
+
         # parameters for input audio 
         self.CHUNK_DURATION = 0.9           # size of the chunck window, in seconds (select a fraction of second!)
         self.FORMAT = pyaudio.paInt16       # 16bit format per sample
@@ -323,9 +325,9 @@ class KeywordSpotting:
         ''' 
         Load the pre-trained model 
         '''
-        pretrained_model = tf.keras.models.load_model(model_path)
-        print(f'\nThe model "{model_path}" has been loaded!')
-        
+        pretrained_model = tf.keras.models.load_model(model_path, compile=False)
+        # print(f'\nThe model "{model_path}" has been loaded!')
+
         return pretrained_model
 
     
@@ -335,7 +337,7 @@ if __name__=="__main__":
     # get available models
     models_dict = {}
     for file in os.listdir(models_path):
-        if file.endswith(".h5"):
+        if file.endswith(".keras"):
             models_dict[len(models_dict)] = file
     
     # print available models
@@ -345,7 +347,6 @@ if __name__=="__main__":
 
     # input model
     model_index = input('\n- Insert input model index and press Enter to continue\n... ')
-    # print("")
     model_name = models_dict[int(model_index)]
 
     ks_streaming = KeywordSpotting(os.path.join(models_path, model_name).replace("\\","/"))
