@@ -3,7 +3,6 @@ import sys, os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'    # TensorFlow will only show error messages, no warnings or info logs
 import tensorflow as tf
 import pyaudio
-import keyboard
 import numpy as np
 # import matplotlib.pyplot as plt
 import sounddevice as sd
@@ -106,7 +105,7 @@ class RobotStateMachine:
 #     robot_fsm.execute_command(command)
 
 class KeywordSpotting:
-    def __init__(self, model_path, prob_threshold=0.98): 
+    def __init__(self, model_path, prob_threshold=0.97): 
         # load pre-trained model
         self.model = self.load_model(model_path)
 
@@ -364,11 +363,9 @@ if __name__=="__main__":
     ks_streaming.reset_index(device)
     
     # streaming
-    print("\nPress Enter to start streaming...")
     while True:
         try:
-            if keyboard.is_pressed('enter'):
-                ks_streaming.stream()
+            ks_streaming.stream()
             
         except KeyboardInterrupt:
             print('\nKeyboard Interrupt!')
