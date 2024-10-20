@@ -43,9 +43,15 @@ In addition to these commands, the program can detect several other keywords for
 
 ## Installation
 
-To get started with this repository, clone the repository and install the required dependencies using the provided `requirements.txt` file or `pyproject.toml`.
+To get started with this repository, clone the repository and install the required dependencies using the provided `requirements.txt` file.
 
-### Using `requirements.txt`:
+### MacOS
+
+```bash
+brew install portaudio
+````
+
+### Install Required Modules:
 
 ```bash
 pip install -r requirements.txt
