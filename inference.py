@@ -138,7 +138,7 @@ class KeywordSpotting:
         '''
         p, pystream = self.define_stream_object()
         pystream.start_stream()
-        print('Process started...\n')
+        print("Listening... Speak into the microphone.")
         
         # plt.figure(figsize=(12, 8))
         
